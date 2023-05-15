@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useDescope, useSession, useUser } from '@descope/react-sdk'
 import { Descope } from '@descope/react-sdk'
+import Profile from "./Profile";
 
 
 function Login() {
@@ -15,20 +16,6 @@ function Login() {
     // logout - call logout to logout the user (deletes all session state)
     const { logout } = useDescope()
 
-    // const [data, setData] = useState({ user: "" });
-  
-    // useEffect(() => {
-    //     // fetch the api data from flask server from proxy
-    //     fetch("/login").then((res) =>
-    //         res.json().then((data) => {
-    //             console.log(data)
-    //             setData({
-    //                 user: data.user
-    //             });
-    //         })
-    //     );
-    // }, []);
-
     return (
         <>
             {/* <p>This is the data: {data.user}</p> */}
@@ -38,11 +25,7 @@ function Login() {
 
             { isAuthenticated &&
                 (
-                <>
-                    {/* <p>Hello ${user.name}</p> */}
-                    <div>My Private Component</div>
-                    <button onClick={logout}>Logout</button>
-                </>
+                    <Profile /> // render component
                 )
             }
 

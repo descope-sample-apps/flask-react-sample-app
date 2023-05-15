@@ -19,6 +19,8 @@ Using the python framework Flask + Descope python SDK + React.js to add authenti
     - react-sdk: ```npm i --save @descope/react-sdk```
 - cd in backend and create a virtual environment: ```python3 -m venv env``` 
     - install flask: ```pip3 install flask```
+    - install descope python sdk: ```pip3 install descope```
+    - install python-dotenv: ```pip3 install python-dotenv```
 - In package.json add the following to allow react to access our flask server: ```"proxy":"http://127.0.0.1:5000/"```
 
 

@@ -6,7 +6,7 @@ import { AuthProvider } from '@descope/react-sdk'
 
 function App() {
   return (
-    <AuthProvider projectId="P2Pq03wpnnjxJajSUKDuy2xviLNV">
+    <AuthProvider projectId={process.env.REACT_APP_PROJECT_ID}>
       <Login />
     </AuthProvider>
   );
