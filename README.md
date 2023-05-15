@@ -14,7 +14,7 @@ Using the Python framework Flask + React.js + Descope Python SDK to add authenti
 - cd into backend: ```pip3 install -r requirements.txt```
     - You can choose to create a virtual environment before you install all the dependencies:
         - ```python3 -m venv ENV_NAME``` -> ```source ENV_NAME/bin/activate```
-    - Create a ```.env``` file and inside the backend folder and add your project id in the file:  ```PROJECT_ID=YOUR_PROJECT_ID```
+    - Create a ```.env``` file and inside the backend folder and add your project id in the file:  ```REACT_APP_PROJECT_ID=YOUR_PROJECT_ID```
         - If you don't have a descope project or don't know what a project ID is check out the [docs](https://docs.descope.com/build/guides/gettingstarted/)
 
 

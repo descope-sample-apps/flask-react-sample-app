@@ -32,7 +32,7 @@ def validate_session():
         jwt_response = descope_client.validate_session(session_token=session_token)
         print ("Successfully validated user session:")
         print (jwt_response)
-        return { "status": "✅" }
+        return { "secretMessage": "You are now a trained Descope user!" }
     except Exception as error:
         print ("Could not validate user session. Error:")
         print (error)
