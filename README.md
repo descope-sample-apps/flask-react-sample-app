@@ -32,6 +32,7 @@ Using the Python framework Flask + React.js + Descope Python SDK to add authenti
 
 - backend: the backend folder contains the flask app and server that will handle session validation 
     - app.py: our main flask app (server)
+    - requirements.txt: a txt file with a list of our dependencies
 - frontend: the frontend folder contains our react app which is the client 
     - descope-flask: this is our react app 
 
@@ -39,10 +40,12 @@ Using the Python framework Flask + React.js + Descope Python SDK to add authenti
 
 ## What is going on? 🤔
 
+<br> 
+
 ### What is Flask?
 Great question! Flask is a light-weight framrwork written in Python. It's super simple to get your web app started and running using Flask with just a couple of lines. <br>
 
-Here is a basic example! 
+Here is a basic example in Flask! 
 
 ```
 # app.py
@@ -51,12 +54,23 @@ from flask import Flask # <-- import Flask
 app = Flask(__name__) # <-- initializes flask app
 
 
-@app.route('/hello', methods=['GET']) 
-def hello_world():
-    return {"hello: "Hello"}
+@app.route('/hello', methods=['GET']) # <-- go to the browser url and add '/hello' at the end
+def hello_world(): # <-- our function that will get triggered
+    return {"hello": "Hello"} <-- our action!
   
       
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == '__main__': # <-- only when executed 
+    app.run(debug=True) # <-- run the app in debug=True mode
 ```
+
+Here is a step-by-step of what's happening:
+- We created a file named app.py. This is our main file 
+- Next we initialized the app. This creates a Flask instance. ```__name__``` is the name of the current Python module and just lets Flask know that this is the main file
+- We can add routes/urls to our flask application by using ```@app.route('/hello', methods=['GET'])```
+    - Take notice that it's the ```app``` variable that we initialized prior
+    - the ```/hello``` is our url
+    - ```methods=['GET']``` tells us that this route is a GET request
+- Right below it is our function which we named ```hello_world``` that now performs the task we give it when someone goes to that url/route. In this case we are returning an object ```{"hello": "Hello"}```
+- ```if __name__ == '__main__':``` lets Flask know that the server should only activate when executed directly like in the terminal
+- ```app.run(debug=True)``` run the our Flask app and the ```debug=True``` means that if there are any changes in our application, it will reload
 
