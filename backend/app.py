@@ -34,10 +34,9 @@ def validate_session():
         print (jwt_response)
 
         role = ""
-
         tenants = jwt_response["tenants"] 
         
-        if (len(tenants) > 0):
+        if (len(tenants) > 0): # check if tenant exists
             student_tenant_id = os.environ.get("STUDENT_TENANT_ID")
             teacher_tenant_id = os.environ.get("TEACHER_TENANT_ID")
 

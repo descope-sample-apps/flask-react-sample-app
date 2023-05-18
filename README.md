@@ -1,30 +1,53 @@
 # Flask + Descope Authentication (and a little bit of React) 
 
-Using the Python framework Flask + React.js + Descope Python SDK to add authentication and manage basic authentication
+Using the Python framework Flask + React.js + Descope Python SDK to add authentication and manage basic authentication.
+You will also be able to see roles based on tenants.
 
 <br>
 
 ## Installing Dependencies 🛠️
 
-### Frontend Setup ⚙️
-- cd into frontend/descope-flask: ```npm install```
-    - In ```package.json``` add the following to allow react to access our flask server (or whatever url your flask server is locally hosted): ```"proxy":"http://127.0.0.1:5000/"```
-    - Create a ```.env``` file and the root directory of the descope-flask folder and add your project id in the file: ```REACT_APP_PROJECT_ID=YOUR_PROJECT_ID```
-        - If you don't have a descope project or don't know what a project ID is check out the [docs](https://docs.descope.com/build/guides/gettingstarted/)
+<br>
 
-### Backend Setup ⚙️
-- cd into backend: ```pip3 install -r requirements.txt```
-    - You can choose to create a virtual environment before you install all the dependencies:
-        - ```python3 -m venv ENV_NAME``` -> ```source ENV_NAME/bin/activate```
-    - Create a ```.env``` file and inside the backend folder and add your project id in the file:  ```PROJECT_ID=YOUR_PROJECT_ID```
-        - If you don't have a descope project or don't know what a project ID is check out the [docs](https://docs.descope.com/build/guides/gettingstarted/)
+### Frontend Setup
 
+cd into frontend/descope-flask: ```npm install``` 
+<br>
+
+In ```package.json``` add the following to allow react to access our flask server (or whatever url your flask server is locally hosted): ```"proxy":"http://127.0.0.1:5000/"``` 
+<br>
+
+Create a ```.env``` file in the root directory of the descope-flask folder and add your project id in the file: ```REACT_APP_PROJECT_ID=YOUR_PROJECT_ID```
+<br>
+
+<br> 
+
+### Backend Setup
+
+To get all the required ids and information to setup the backend, first make sure that you have a descope project. <br>
+Then create two different [tenants](https://app.descope.com/tenants) called "Teachers" and "Students." A tenant is just a way of organizing a group of users who share similar characteristics. <br>
+Next add your [roles](https://app.descope.com/authorization). Create two different roles called "teacher" and "student." <br>
+
+cd into backend: ```pip3 install -r requirements.txt```
+<br>
+
+You can choose to create a virtual environment before you install all the dependencies:
+```python3 -m venv ENV_NAME``` and to activate: ```source ENV_NAME/bin/activate```
+<br>
+
+Create a ```.env``` file and inside the backend folder and add your project id, student tenant id, and teacher tenant id in the file:  
+```
+PROJECT_ID=YOUR_PROJECT_ID
+STUDENT_TENANT_ID=YOUR_STUDENT_TENANT_ID
+TEACHER_TENANT_ID=YOUR_STUDENT_TENANT_ID
+```
+
+<br>
 
 ## Running the Application 💡
 
 - cd into backend: ```flask run```
 - cd into frontend/descope-flask: ```npm start```
-
 
 <br>
 
@@ -42,35 +65,13 @@ Using the Python framework Flask + React.js + Descope Python SDK to add authenti
 
 <br> 
 
+### How do I get started with Descope?
+If you don't have a descope project or don't know what a project ID is check out the [docs](https://docs.descope.com/build/guides/gettingstarted/)
+
 ### What is Flask?
-Great question! Flask is a light-weight framrwork written in Python. It's super simple to get your web app started and running using Flask with just a couple of lines. <br>
+Flask is a light-weight framework written in Python. It's super simple to get your web app started and running using Flask with just a couple of lines. To learn the basics of Flask check out the official [documentation](https://flask.palletsprojects.com/en/2.3.x/quickstart/)<br>
 
-Here is a basic example in Flask! 
+### What is React? 
+React is a JavaScript web framework used to create beautiful user interfaces. To lean the basics of React check out the official [documentation](https://react.dev/learn)
 
-```
-# app.py
-from flask import Flask # <-- import Flask
-
-app = Flask(__name__) # <-- initializes flask app
-
-
-@app.route('/hello', methods=['GET']) # <-- go to the browser url and add '/hello' at the end
-def hello_world(): # <-- our function that will get triggered
-    return {"hello": "Hello"} <-- our action!
-  
-      
-if __name__ == '__main__': # <-- only when executed 
-    app.run(debug=True) # <-- run the app in debug=True mode
-```
-
-Here is a step-by-step of what's happening:
-- We created a file named app.py. This is our main file 
-- Next we initialized the app. This creates a Flask instance. ```__name__``` is the name of the current Python module and just lets Flask know that this is the main file
-- We can add routes/urls to our flask application by using ```@app.route('/hello', methods=['GET'])```
-    - Take notice that it's the ```app``` variable that we initialized prior
-    - the ```/hello``` is our url
-    - ```methods=['GET']``` tells us that this route is a GET request
-- Right below it is our function which we named ```hello_world``` that now performs the task we give it when someone goes to that url/route. In this case we are returning an object ```{"hello": "Hello"}```
-- ```if __name__ == '__main__':``` lets Flask know that the server should only activate when executed directly like in the terminal
-- ```app.run(debug=True)``` run the our Flask app and the ```debug=True``` means that if there are any changes in our application, it will reload
 
