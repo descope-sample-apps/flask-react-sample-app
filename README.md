@@ -26,11 +26,11 @@ To get all the required ids and information to setup the backend, first make sur
 Then create two different [tenants](https://app.descope.com/tenants) called "Teachers" and "Students." A tenant is just a way of organizing a group of users who share similar characteristics. <br>
 Next add your [roles](https://app.descope.com/authorization). Create two different roles called "teacher" and "student." <br>
 
-cd into backend: ```pip3 install -r requirements.txt```
 <br>
 
-You can choose to create a virtual environment before you install all the dependencies:
-```python3 -m venv ENV_NAME``` and to activate: ```source ENV_NAME/bin/activate```
+cd into backend and setup: ```make setup```
+This will create a virtual environment and install all dependencies for you.
+
 <br>
 
 Create a ```.env``` file and inside the backend folder and add your project id, student tenant id, and teacher tenant id in the file:  

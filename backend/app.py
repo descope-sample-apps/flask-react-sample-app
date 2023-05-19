@@ -1,16 +1,6 @@
 import os
 from flask import Flask, request
-from descope import (
-    REFRESH_SESSION_TOKEN_NAME,
-    SESSION_TOKEN_NAME,
-    AuthException,
-    DeliveryMethod,
-    DescopeClient,
-    AssociatedTenant,
-    RoleMapping,
-    AttributeMapping,
-    LoginOptions
-)
+from descope import DescopeClient
 
 
 app = Flask(__name__) # initialize flask app
