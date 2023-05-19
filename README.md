@@ -62,12 +62,12 @@ TEACHER_TENANT_ID=YOUR_STUDENT_TENANT_ID
 ## What is going on? 🤔
 
 ### How do I get started with Descope?
-If you don't have a descope project or don't know what a project ID is check out the [docs](https://docs.descope.com/build/guides/gettingstarted/)
+If you don't have a Descope project or unsure what a project ID is, check out the [docs](https://docs.descope.com/build/guides/gettingstarted/)
 
 ### What is Flask?
-Flask is a light-weight framework written in Python. It's super simple to get your web app started and running using Flask with just a couple of lines. To learn the basics of Flask check out the official [documentation](https://flask.palletsprojects.com/en/2.3.x/quickstart/)<br>
+Flask is a light-weight framework written in Python. It's super simple to get your web app started and running using Flask with just a couple of lines. To learn the basics of Flask, check out the official [documentation](https://flask.palletsprojects.com/en/2.3.x/quickstart/)<br>
 
 ### What is React? 
-React is a JavaScript web framework used to create beautiful user interfaces. To lean the basics of React check out the official [documentation](https://react.dev/learn)
+React is a JavaScript web framework used to create beautiful user interfaces. To learn the basics of React check out the official [documentation](https://react.dev/learn)
 
 
