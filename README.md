@@ -7,8 +7,6 @@ You will also be able to see roles based on tenants.
 
 ## Installing Dependencies 🛠️
 
-<br>
-
 ### Frontend Setup
 
 cd into frontend/descope-flask: ```npm install``` 
@@ -62,8 +60,6 @@ TEACHER_TENANT_ID=YOUR_STUDENT_TENANT_ID
 <br>
 
 ## What is going on? 🤔
-
-<br> 
 
 ### How do I get started with Descope?
 If you don't have a descope project or don't know what a project ID is check out the [docs](https://docs.descope.com/build/guides/gettingstarted/)
