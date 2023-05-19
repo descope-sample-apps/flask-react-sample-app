@@ -28,7 +28,7 @@ Next add your [roles](https://app.descope.com/authorization). Create two differe
 
 <br>
 
-cd into backend and setup: ```make setup```
+cd into backend and setup using the command: ```make setup``` <br>
 This will create a virtual environment and install all dependencies for you.
 
 <br>
