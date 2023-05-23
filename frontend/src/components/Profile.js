@@ -37,9 +37,13 @@ function Profile() {
                     <div>My Private Component</div>
                     <p>Secret Message: <span style={{ padding: "5px 10px", color: "white", backgroundColor: "black"}}>{secret.secret}</span></p>
                     <p>Your Role(s): </p>
-                    {secret.role.map((role, i) => (
-                        <p key={i}><span style={{ color: "green" }}>{role}</span></p>
-                    ))}
+                    {!secret.role ? 
+                        <p><span style={{ color: "green" }}>No role found!</span></p>
+                        :
+                        secret.role.map((role, i) => (
+                            <p key={i}><span style={{ color: "green" }}>{role}</span></p>
+                        ))
+                    }
                     <button 
                     style={{ border: "None", backgroundColor: "#00BD67", padding: "15px 25px", color: "white", fontSize: "1.1em", borderRadius: "9px", marginTop: "12px" }} 
                     onClick={logout}>Logout</button>

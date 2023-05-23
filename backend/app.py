@@ -16,7 +16,6 @@ except Exception as error:
 def find_role(data):
     if ("roles" in data):
         return data["roles"]
-    return ["No role found"]
   
   
 @app.route('/validate_session', methods=['GET']) 
