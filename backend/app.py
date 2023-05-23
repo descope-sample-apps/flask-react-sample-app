@@ -1,16 +1,6 @@
 import os
 from flask import Flask, request
-from descope import (
-    REFRESH_SESSION_TOKEN_NAME,
-    SESSION_TOKEN_NAME,
-    AuthException,
-    DeliveryMethod,
-    DescopeClient,
-    AssociatedTenant,
-    RoleMapping,
-    AttributeMapping,
-    LoginOptions
-)
+from descope import DescopeClient
 
 
 app = Flask(__name__) # initialize flask app
@@ -32,7 +22,22 @@ def validate_session():
         jwt_response = descope_client.validate_session(session_token=session_token)
         print ("Successfully validated user session:")
         print (jwt_response)
-        return { "status": "✅" }
+
+        role = ""
+        tenants = jwt_response["tenants"] 
+        
+        if (len(tenants) > 0): # check if tenant exists
+            student_tenant_id = os.environ.get("STUDENT_TENANT_ID")
+            teacher_tenant_id = os.environ.get("TEACHER_TENANT_ID")
+
+            if (student_tenant_id in tenants):
+                role = tenants[student_tenant_id]["roles"]
+            elif (teacher_tenant_id in tenants):
+                role = tenants[teacher_tenant_id]["roles"]
+        else:
+            print("No role found!")
+
+        return { "secretMessage": "You are now a trained Descope user!", "role": role }
     except Exception as error:
         print ("Could not validate user session. Error:")
         print (error)
