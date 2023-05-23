@@ -40,7 +40,6 @@ function Profile() {
                     {secret.role.map((role, i) => (
                         <p key={i}><span style={{ color: "green" }}>{role}</span></p>
                     ))}
-                    {secret.role.length === 0 && <p><span style={{ color: "green" }}>No Role</span></p>}
                     <button 
                     style={{ border: "None", backgroundColor: "#00BD67", padding: "15px 25px", color: "white", fontSize: "1.1em", borderRadius: "9px", marginTop: "12px" }} 
                     onClick={logout}>Logout</button>
