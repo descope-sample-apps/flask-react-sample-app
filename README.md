@@ -33,8 +33,8 @@ This will create a virtual environment and install all dependencies for you.
 ## Running the Application 💡
 
 - cd into backend: ```flask run```
-- run the frontend: ```npm run client``` 
-    - You can also cd into frontend and start it as well: ```npm start```
+- run the frontend/client: ```npm run client``` 
+    - You can also cd into the frontend folder and start it as well: ```npm start```
 
 <br>
 
