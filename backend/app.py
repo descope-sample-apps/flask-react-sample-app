@@ -6,8 +6,6 @@ from descope import DescopeClient
 app = Flask(__name__) # initialize flask app
 
 
-print(os.environ.get("PROJECT_ID"))
-
 try:
     descope_client = DescopeClient(project_id=os.environ.get("PROJECT_ID")) # initialize the descope client
 except Exception as error:
