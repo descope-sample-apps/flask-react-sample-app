@@ -8,7 +8,7 @@ Using the Python framework Flask + React.js + Descope Python SDK to add and mana
 
 ### Frontend Setup
 
-1. cd into frontend ```npm install``` 
+1. install dependencies: ```npm run setup``` 
 2. In ```package.json``` add the following to allow react to access our flask server (or whatever URL your flask server is locally hosted): ```"proxy":"http://127.0.0.1:5000/"``` 
 3. Create a ```.env``` file in the root directory of the frontend folder and add your project id in the file: ```REACT_APP_PROJECT_ID=YOUR_PROJECT_ID```
 
@@ -33,7 +33,8 @@ This will create a virtual environment and install all dependencies for you.
 ## Running the Application 💡
 
 - cd into backend: ```flask run```
-- cd into frontend/descope-flask: ```npm start```
+- run the frontend: ```npm run client``` 
+    - You can also cd into frontend and start it as well: ```npm start```
 
 <br>
 
@@ -42,8 +43,7 @@ This will create a virtual environment and install all dependencies for you.
 - backend: the backend folder contains the flask app and server that will handle session validation 
     - app.py: our main flask app (server)
     - requirements.txt: a txt file with a list of our dependencies
-- frontend: the frontend folder contains our react app which is the client 
-    - descope-flask: this is our react app 
+- frontend: our react app 
 
 <br>
 
