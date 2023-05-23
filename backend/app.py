@@ -11,6 +11,12 @@ try:
 except Exception as error:
     print ("failed to initialize. Error:")
     print (error)
+
+
+def find_role(data):
+    if ("roles" in data):
+        return data["roles"]
+    return ["No role found"]
   
   
 @app.route('/validate_session', methods=['GET']) 
@@ -23,17 +29,17 @@ def validate_session():
         print ("Successfully validated user session:")
         print (jwt_response)
 
-        role = ""
+        role = []
         tenants = jwt_response["tenants"] 
         
         if (len(tenants) > 0): # check if tenant exists
             student_tenant_id = os.environ.get("STUDENT_TENANT_ID")
             teacher_tenant_id = os.environ.get("TEACHER_TENANT_ID")
-
+            
             if (student_tenant_id in tenants):
-                role = tenants[student_tenant_id]["roles"]
+                role = find_role(tenants[student_tenant_id])
             elif (teacher_tenant_id in tenants):
-                role = tenants[teacher_tenant_id]["roles"]
+                role = find_role(tenants[teacher_tenant_id])
         else:
             print("No role found!")
 

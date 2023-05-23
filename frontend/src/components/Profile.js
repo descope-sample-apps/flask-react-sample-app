@@ -8,7 +8,7 @@ function Profile() {
     const { logout } = useDescope()
     const [secret, setSecret] = useState({
         secret: "",
-        role: ""
+        role: []
     })
 
     const sessionToken = getSessionToken(); // get the session token
@@ -36,7 +36,11 @@ function Profile() {
                     <h1>Hello {user.name} 👋</h1>
                     <div>My Private Component</div>
                     <p>Secret Message: <span style={{ padding: "5px 10px", color: "white", backgroundColor: "black"}}>{secret.secret}</span></p>
-                    {secret.role ? <p>Your Role: <span style={{ color: "green" }}>{secret.role}</span></p> : <p>No Role!</p>}
+                    <p>Your Role(s): </p>
+                    {secret.role.map((role, i) => (
+                        <p key={i}><span style={{ color: "green" }}>{role}</span></p>
+                    ))}
+                    {secret.role.length === 0 && <p><span style={{ color: "green" }}>No Role</span></p>}
                     <button 
                     style={{ border: "None", backgroundColor: "#00BD67", padding: "15px 25px", color: "white", fontSize: "1.1em", borderRadius: "9px", marginTop: "12px" }} 
                     onClick={logout}>Logout</button>

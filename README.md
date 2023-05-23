@@ -1,6 +1,6 @@
 # Flask + Descope Authentication (and a little bit of React) 
 
-Using the Python framework Flask + React.js + Descope Python SDK to add and manage basic authentication.
+Using the Python framework Flask + React.js + Descope Python SDK to add and manage basic authentication, tenants, and roles!
 
 <br>
 
@@ -8,9 +8,9 @@ Using the Python framework Flask + React.js + Descope Python SDK to add and mana
 
 ### Frontend Setup
 
-1. cd into frontend/descope-flask: ```npm install``` 
+1. cd into frontend ```npm install``` 
 2. In ```package.json``` add the following to allow react to access our flask server (or whatever URL your flask server is locally hosted): ```"proxy":"http://127.0.0.1:5000/"``` 
-3. Create a ```.env``` file in the root directory of the descope-flask folder and add your project id in the file: ```REACT_APP_PROJECT_ID=YOUR_PROJECT_ID```
+3. Create a ```.env``` file in the root directory of the frontend folder and add your project id in the file: ```REACT_APP_PROJECT_ID=YOUR_PROJECT_ID```
 
 <br> 
 
