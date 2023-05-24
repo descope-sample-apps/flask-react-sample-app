@@ -1,7 +1,6 @@
 # Flask + Descope Authentication (and a little bit of React) 
 
-Using the Python framework Flask + React.js + Descope Python SDK to add authentication and manage basic authentication.
-You will also be able to see roles based on tenants.
+Using the Python framework Flask + React.js + Descope Python SDK to add and manage basic authentication, tenants, and roles!
 
 <br>
 
@@ -9,43 +8,33 @@ You will also be able to see roles based on tenants.
 
 ### Frontend Setup
 
-cd into frontend/descope-flask: ```npm install``` 
-<br>
-
-In ```package.json``` add the following to allow react to access our flask server (or whatever url your flask server is locally hosted): ```"proxy":"http://127.0.0.1:5000/"``` 
-<br>
-
-Create a ```.env``` file in the root directory of the descope-flask folder and add your project id in the file: ```REACT_APP_PROJECT_ID=YOUR_PROJECT_ID```
-<br>
+1. install dependencies: ```npm run setup``` 
+2. In ```package.json``` add the following to allow react to access our flask server (or whatever URL your flask server is locally hosted): ```"proxy":"http://127.0.0.1:5000/"``` 
+3. Create a ```.env``` file in the root directory of the frontend folder and add your project id in the file: ```REACT_APP_PROJECT_ID=YOUR_PROJECT_ID```
 
 <br> 
 
 ### Backend Setup
 
-To get all the required ids and information to setup the backend, first make sure that you have a descope project. <br>
-Then create two different [tenants](https://app.descope.com/tenants) called "Teachers" and "Students." A tenant is just a way of organizing a group of users who share similar characteristics. <br>
-Next add your [roles](https://app.descope.com/authorization). Create two different roles called "teacher" and "student." <br>
-
-<br>
-
-cd into backend and setup using the command: ```make setup``` <br>
+1. To get all the required ids and information to setup the backend, first make sure that you have a descope project
+2. Create two different [tenants](https://app.descope.com/tenants) called "Teachers" and "Students." A tenant is just a way of organizing a group of users who share similar characteristics 
+3. Add your [roles](https://app.descope.com/authorization). Create two different roles called "teacher" and "student" <br>
+4. Create a ```.env``` file and inside the backend folder and add your project id, student tenant id, and teacher tenant id in  the file:  
+    ```
+    PROJECT_ID=YOUR_PROJECT_ID
+    STUDENT_TENANT_ID=YOUR_STUDENT_TENANT_ID
+    TEACHER_TENANT_ID=YOUR_STUDENT_TENANT_ID
+    ```
+5. cd into backend folder and setup using the command: ```make setup``` <br>
 This will create a virtual environment and install all dependencies for you.
-
-<br>
-
-Create a ```.env``` file and inside the backend folder and add your project id, student tenant id, and teacher tenant id in the file:  
-```
-PROJECT_ID=YOUR_PROJECT_ID
-STUDENT_TENANT_ID=YOUR_STUDENT_TENANT_ID
-TEACHER_TENANT_ID=YOUR_STUDENT_TENANT_ID
-```
 
 <br>
 
 ## Running the Application 💡
 
 - cd into backend: ```flask run```
-- cd into frontend/descope-flask: ```npm start```
+- run the frontend/client: ```npm run client``` 
+    - You can also cd into the frontend folder and start it as well: ```npm start```
 
 <br>
 
@@ -54,8 +43,7 @@ TEACHER_TENANT_ID=YOUR_STUDENT_TENANT_ID
 - backend: the backend folder contains the flask app and server that will handle session validation 
     - app.py: our main flask app (server)
     - requirements.txt: a txt file with a list of our dependencies
-- frontend: the frontend folder contains our react app which is the client 
-    - descope-flask: this is our react app 
+- frontend: our react app 
 
 <br>
 
