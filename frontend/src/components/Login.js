@@ -1,7 +1,8 @@
-import React from "react";
+import '../App.css';
+import React, { useEffect } from "react";
 import { useSession, useUser } from '@descope/react-sdk'
 import { Descope } from '@descope/react-sdk'
-import Profile from "./Profile";
+import { useNavigate } from "react-router-dom";
 
 
 function Login() {
@@ -10,23 +11,24 @@ function Login() {
     const { isAuthenticated, isSessionLoading } = useSession()
     // isUserLoading: boolean - Use this for showing loading screens while objects are being loaded
     const { isUserLoading } = useUser()
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            return navigate("/profile");
+        }
+    }, [isAuthenticated]) // listen for when isAuthenticated has changed
 
     return (
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+        <div className='page'>
             {
                 (isSessionLoading || isUserLoading) && <p>Loading...</p>
-            }
-
-            {isAuthenticated &&
-                (
-                    <Profile /> // render component
-                )
             }
 
             {!isAuthenticated &&
                 (
                     <>
-                        <h1 style={{ fontSize: "2em", marginTop: "10vh" }}>Login/SignUp to see the Secret Message!</h1>
+                        <h1 className='title'>Login/SignUp to see the Secret Message!</h1>
                         <Descope
                             flowId="sign-up-or-in" 
                             onSuccess = {(e) => console.log(e.detail.user)}
