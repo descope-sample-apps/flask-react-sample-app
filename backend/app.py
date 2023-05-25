@@ -60,7 +60,7 @@ def get_roles(jwt_response):
 
 @app.route('/get_role_data', methods=['GET']) 
 @token_required
-def get_student(jwt_response):
+def get_role_data(jwt_response):
     valid_student_role = descope_client.validate_tenant_roles(
         jwt_response, os.environ.get("STUDENT_TENANT_ID"), ["student"]
     )
