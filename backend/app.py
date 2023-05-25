@@ -1,9 +1,31 @@
 import os
-from flask import Flask, request
+from flask import Flask, request, make_response, jsonify
 from descope import DescopeClient
+from functools import wraps
 
 
 app = Flask(__name__) # initialize flask app
+
+
+def token_required(f): # auth decorator
+    @wraps(f)
+    def decorator(*args, **kwargs):
+        session_token = None
+
+        if 'Authorization' in request.headers: # check if token in request
+            auth_request = request.headers['Authorization']
+            session_token = auth_request.replace('Bearer ', '')
+        if not session_token: # throw error
+            return make_response(jsonify({"error": "❌ invalid session token!"}), 401)
+
+        try: # validate token
+            jwt_response = descope_client.validate_session(session_token=session_token)
+        except:
+            return make_response(jsonify({"error": "❌ invalid session token!"}), 401)
+
+        return f(jwt_response, *args, **kwargs)
+
+    return decorator
 
 
 try:
@@ -17,37 +39,37 @@ def find_role(data):
     if ("roles" in data):
         return data["roles"]
   
-  
-@app.route('/validate_session', methods=['GET']) 
-def validate_session():
-    auth_request = request.headers['Authorization']
-    session_token = auth_request.replace('Bearer ', '') # get the session token
 
-    try:
-        jwt_response = descope_client.validate_session(session_token=session_token)
-        print ("Successfully validated user session:")
-        print (jwt_response)
-
-        role = []
-        tenants = jwt_response["tenants"] 
+@app.route('/get_roles', methods=['GET']) 
+@token_required
+def get_roles(jwt_response):
+    role = []
+    tenants = jwt_response["tenants"] 
+    
+    if (len(tenants) > 0): # check if tenant exists
+        student_tenant_id = os.environ.get("STUDENT_TENANT_ID")
+        teacher_tenant_id = os.environ.get("TEACHER_TENANT_ID")
         
-        if (len(tenants) > 0): # check if tenant exists
-            student_tenant_id = os.environ.get("STUDENT_TENANT_ID")
-            teacher_tenant_id = os.environ.get("TEACHER_TENANT_ID")
-            
-            if (student_tenant_id in tenants):
-                role = find_role(tenants[student_tenant_id])
-            elif (teacher_tenant_id in tenants):
-                role = find_role(tenants[teacher_tenant_id])
-        else:
-            print("No role found!")
+        if (student_tenant_id in tenants):
+            role = find_role(tenants[student_tenant_id])
+        elif (teacher_tenant_id in tenants):
+            role = find_role(tenants[teacher_tenant_id])
 
-        return { "secretMessage": "You are now a trained Descope user!", "role": role }
-    except Exception as error:
-        print ("Could not validate user session. Error:")
-        print (error)
-        return { "status": "❌" }
+    return { "secretMessage": "You are now a trained Descope user!", "role": role}
   
-      
+
+@app.route('/get_role_data', methods=['GET']) 
+@token_required
+def get_student(jwt_response):
+    valid_student_role = descope_client.validate_tenant_roles(
+        jwt_response, os.environ.get("STUDENT_TENANT_ID"), ["student"]
+    )
+    valid_teacher_role = descope_client.validate_tenant_roles(
+        jwt_response, os.environ.get("TEACHER_TENANT_ID"), ["teacher"]
+    )
+
+    return {"valid_teacher": valid_teacher_role, "valid_student": valid_student_role}
+
+
 if __name__ == '__main__':
     app.run(debug=True)

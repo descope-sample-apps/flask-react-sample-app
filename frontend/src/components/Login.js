@@ -1,7 +1,6 @@
 import '../App.css';
 import React, { useEffect } from "react";
-import { useSession, useUser } from '@descope/react-sdk'
-import { Descope } from '@descope/react-sdk'
+import { Descope, useSession, useUser } from '@descope/react-sdk'
 import { useNavigate } from "react-router-dom";
 
 

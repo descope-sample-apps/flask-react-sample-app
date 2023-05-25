@@ -10,6 +10,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 5vh;
 }
 .title {
   margin-top: 10vh;
@@ -28,4 +29,8 @@
   font-size: 1.1em;
   border-radius: 9px;
   margin-top: 12px;
+  margin-right: 1vh;
+}
+.student {
+  margin-bottom: 5vh;
 }
