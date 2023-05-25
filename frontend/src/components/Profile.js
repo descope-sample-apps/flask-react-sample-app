@@ -48,7 +48,6 @@ function Profile() {
 
     return (
         <>  
-        {console.log(user)}
             {user && (
                 <div className='page profile'>
                     <div>

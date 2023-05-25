@@ -20,7 +20,6 @@ function Dashboard() {
                 Authorization: 'Bearer ' + sessionToken,
             }
         }).then(data => {
-            console.log(data)
             if (data.status === 401) {
                 navigate('/login')
             }
