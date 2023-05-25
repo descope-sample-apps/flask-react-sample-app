@@ -6,7 +6,7 @@ Using the Python framework Flask + React.js + Descope Python SDK to add and mana
 
 ## Installing Dependencies 🛠️
 
-In the root directory of the project run the following to install all dependencies: ```npm run setup```
+In the root directory of the project, run the following to install all dependencies: ```npm run setup```
 
 ### Frontend Setup
 
