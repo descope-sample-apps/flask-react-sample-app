@@ -4,8 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "setup": "cd frontend && npm install",
-        "client": "cd frontend && npm start"
+        "setup": "cd frontend && npm install && cd .. && cd backend && make setup",
+        "client": "cd frontend && npm start",
+        "server": "cd backend && flask run"
     },
     "dependencies": {
         "@descope/react-sdk": "^1.0.3",

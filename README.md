@@ -6,10 +6,11 @@ Using the Python framework Flask + React.js + Descope Python SDK to add and mana
 
 ## Installing Dependencies 🛠️
 
+In the root directory of the project run the following to install all dependencies: ```npm run setup```
+
 ### Frontend Setup
 
-1. Install all dependencies with the command: ```npm run setup``` 
-2. Create a ```.env``` file in the root directory of the `frontend` folder and add your Descope [Project ID](https://app.descope.com/settings/project) in the file: ```REACT_APP_PROJECT_ID=DESCOPE_PROJECT_ID```
+1. Create a ```.env``` file in the root directory of the `frontend` folder and add your Descope [Project ID](https://app.descope.com/settings/project) in the file: ```REACT_APP_PROJECT_ID=DESCOPE_PROJECT_ID```
 
 > **NOTE**: If you're running your flask backend on a different port than 5000, change the ```"proxy":"http://127.0.0.1:5000/"``` value to wherever your backend is hosted.
 
@@ -27,15 +28,14 @@ Since this app also showcases tenants/roles, it will require you to set them up 
     STUDENT_TENANT_ID=<YOUR_STUDENT_TENANT_ID>
     TEACHER_TENANT_ID=<YOUR_STUDENT_TENANT_ID>
     ```
-5. Finally, cd into the `backend` folder and setup the flask server using the command: ```make setup``` <br>
-This will create a virtual environment and install all dependencies for you.
 
 <br>
 
 ## Running the Application 💡
 
-- To run the server, cd into `backend` folder and run the command: ```flask run```
-- To run the client, run the command from the root directory: ```npm run client``` 
+Have at least 2 different terminals open, one command for each terminal. Run the following commands in the project root directory.
+- To run the server: ```npm run server```
+- To run the client: ```npm run client``` 
 
 <br>
 
