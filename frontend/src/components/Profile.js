@@ -1,12 +1,16 @@
 import '../App.css';
 import { useState, useEffect } from "react";
-import { useDescope, useUser } from '@descope/react-sdk'
-import { getSessionToken } from '@descope/react-sdk';
+import { useDescope, useUser, getSessionToken, useSession } from '@descope/react-sdk'
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 function Profile() {
+    const { isSessionLoading } = useSession()
+
     const { user } = useUser()
     const { logout } = useDescope()
+    const navigate = useNavigate()
 
     const [secret, setSecret] = useState({
         secret: "",
@@ -15,24 +19,35 @@ function Profile() {
 
     const sessionToken = getSessionToken(); // get the session token
 
+    const logoutUser = async() => {
+        await logout()
+        return navigate('/login')
+    }
+
     useEffect(() => {
-        fetch('/validate_session', { // call the api endpoint from the flask server
+        fetch('/get_roles', { // call the api endpoint from the flask server
             headers: {
                 Accept: 'application/json',
                 Authorization: 'Bearer ' + sessionToken,
             }
         }).then(data => {
+            if (data.status === 401) {
+                navigate('/login')
+            }
             return data.json()
         }).then(jsonData => {
             setSecret({
                 secret: jsonData.secretMessage,
                 role: jsonData.role
             })
-        });
+        }).catch((err) => {
+            console.log(err)
+            navigate('/login')
+        })
     }, [])
 
     return (
-        <>
+        <>  
             {user && (
                 <div className='page profile'>
                     <div>
@@ -47,7 +62,9 @@ function Profile() {
                                 <p key={i}><span style={{ color: "green" }}>{role}</span></p>
                             ))
                         }
-                        <button className='btn' onClick={logout}>Logout</button>        
+                        <Link className='link btn' to="/">Home</Link>
+                        <Link className='link btn' to="/dashboard">Dashboard</Link>
+                        <button className='btn' onClick={logoutUser}>Logout</button>        
                     </div>
                 </div>
             )}
