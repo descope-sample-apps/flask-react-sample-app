@@ -42,8 +42,8 @@ This will create a virtual environment and install all dependencies for you.
 ## Folder Structure 📁
 
 - Backend: the backend folder contains the flask app and server that will handle session validation 
-    - app.py: our main flask app (server)
-    - requirements.txt: a txt file with a list of our dependencies
+    - `app.py`: our main flask app (server)
+    - `requirements.txt`: a txt file with a list of our dependencies
 - Frontend: our react app 
 
 <br>
