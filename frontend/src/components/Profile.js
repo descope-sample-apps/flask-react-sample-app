@@ -55,7 +55,7 @@ function Profile() {
                         <div>My Private Component</div>
                         <p>Secret Message: <span style={{ padding: "5px 10px", color: "white", backgroundColor: "black"}}>{secret.secret}</span></p>
                         <p>Your Role(s): </p>
-                        {!secret.role ? 
+                        {!secret.role || secret.role.length === 0 ? 
                             <p><span style={{ color: "green" }}>No role found!</span></p>
                             :
                             secret.role.map((role, i) => (
