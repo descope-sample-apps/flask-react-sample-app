@@ -1,6 +1,6 @@
 # Flask + Descope Authentication (and a little bit of React) 
 
-Using the Python framework Flask + React.js + Descope Python SDK to add and manage basic authentication, tenants, and roles!
+Using the Python framework Flask + React.js + Descope Python SDK to add and manage basic authentication, tenants, and roles! The project will feature multiple pages, protected routes, and logout functionality. 
 
 <br>
 

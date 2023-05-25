@@ -1,3 +1,4 @@
+import '../App.css';
 import { useState, useEffect } from "react";
 import { useDescope, useUser } from '@descope/react-sdk'
 import { getSessionToken } from '@descope/react-sdk';
@@ -6,6 +7,7 @@ import { getSessionToken } from '@descope/react-sdk';
 function Profile() {
     const { user } = useUser()
     const { logout } = useDescope()
+
     const [secret, setSecret] = useState({
         secret: "",
         role: []
@@ -32,21 +34,21 @@ function Profile() {
     return (
         <>
             {user && (
-                <div>
-                    <h1>Hello {user.name} 👋</h1>
-                    <div>My Private Component</div>
-                    <p>Secret Message: <span style={{ padding: "5px 10px", color: "white", backgroundColor: "black"}}>{secret.secret}</span></p>
-                    <p>Your Role(s): </p>
-                    {!secret.role ? 
-                        <p><span style={{ color: "green" }}>No role found!</span></p>
-                        :
-                        secret.role.map((role, i) => (
-                            <p key={i}><span style={{ color: "green" }}>{role}</span></p>
-                        ))
-                    }
-                    <button 
-                    style={{ border: "None", backgroundColor: "#00BD67", padding: "15px 25px", color: "white", fontSize: "1.1em", borderRadius: "9px", marginTop: "12px" }} 
-                    onClick={logout}>Logout</button>
+                <div className='page profile'>
+                    <div>
+                        <h1 className='title'>Hello {user.name} 👋</h1>
+                        <div>My Private Component</div>
+                        <p>Secret Message: <span style={{ padding: "5px 10px", color: "white", backgroundColor: "black"}}>{secret.secret}</span></p>
+                        <p>Your Role(s): </p>
+                        {!secret.role ? 
+                            <p><span style={{ color: "green" }}>No role found!</span></p>
+                            :
+                            secret.role.map((role, i) => (
+                                <p key={i}><span style={{ color: "green" }}>{role}</span></p>
+                            ))
+                        }
+                        <button className='btn' onClick={logout}>Logout</button>        
+                    </div>
                 </div>
             )}
         </>

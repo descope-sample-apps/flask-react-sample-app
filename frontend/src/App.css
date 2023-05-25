@@ -5,4 +5,27 @@
   text-align: center;
   font-family: 'Golos Text', sans-serif;
 }
-
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  margin-top: 10vh;
+  margin-bottom: 5vh;
+  font-size: 2em;
+}
+.link {
+  text-decoration: none;
+  margin-bottom: 5vh;
+}
+.btn {
+  border: None;
+  background-color: #00BD67;
+  padding: 15px 25px;
+  color: #fff;
+  font-size: 1.1em;
+  border-radius: 9px;
+  margin-top: 12px;
+}

@@ -1,14 +1,24 @@
-// import logo from './logo.svg';
 import './App.css';
+import Home from './components/Home';
 import Login from './components/Login';
-import { AuthProvider } from '@descope/react-sdk'
+import Profile from './components/Profile';
+import ProtectedRoute from './components/ProtectedRoute';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function App() {
   return (
-    <AuthProvider projectId={process.env.REACT_APP_PROJECT_ID}>
-      <Login />
-    </AuthProvider>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/profile' element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>} 
+        />
+      </Routes>
+    </Router>
   );
 }
 
