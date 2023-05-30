@@ -42,7 +42,7 @@ function Dashboard() {
             {roles.teacherRole && (
                 <div className='page'>
                     <h1>Welcome back Teacher!</h1>
-                    <p>You have 50+ students currently.</p>
+                    <p className='students'>You have 50+ students currently 🧑‍🎓</p>
                 </div>
             )}
             {roles.studentRole && (

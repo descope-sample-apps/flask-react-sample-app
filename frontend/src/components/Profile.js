@@ -14,7 +14,7 @@ function Profile() {
 
     const [secret, setSecret] = useState({
         secret: "",
-        role: []
+        roles: []
     })
 
     const sessionToken = getSessionToken(); // get the session token
@@ -38,7 +38,7 @@ function Profile() {
         }).then(jsonData => {
             setSecret({
                 secret: jsonData.secretMessage,
-                role: jsonData.role
+                roles: jsonData.roles
             })
         }).catch((err) => {
             console.log(err)
@@ -55,10 +55,10 @@ function Profile() {
                         <div>My Private Component</div>
                         <p>Secret Message: <span style={{ padding: "5px 10px", color: "white", backgroundColor: "black"}}>{secret.secret}</span></p>
                         <p>Your Role(s): </p>
-                        {!secret.role || secret.role.length === 0 ? 
+                        {!secret.roles || secret.roles.length === 0 ? 
                             <p><span style={{ color: "green" }}>No role found!</span></p>
                             :
-                            secret.role.map((role, i) => (
+                            secret.roles.map((role, i) => (
                                 <p key={i}><span style={{ color: "green" }}>{role}</span></p>
                             ))
                         }

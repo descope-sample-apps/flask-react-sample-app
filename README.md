@@ -1,6 +1,6 @@
 # Flask + Descope Authentication (and a little bit of React) 
 
-Using the Python framework Flask + React.js + Descope Python SDK to add and manage basic authentication, tenants, and roles. The project will feature multiple pages, protected routes, and logout functionality. 
+Using the Python framework Flask + React.js + Descope Python SDK to add and manage basic authentication and roles. The project will feature multiple pages, protected routes, and logout functionality. 
 
 <br>
 
@@ -18,15 +18,12 @@ In the root directory of the project, run the following to install all dependenc
 
 ### Backend Setup
 
-Since this app also showcases tenants/roles, it will require you to set them up in the Descope Console.
+Since this app also showcases roles, it will require you to set them up in the Descope Console.
 
-1. Create two different [Tenants](https://app.descope.com/tenants) called "Teachers" and "Students." A Tenant is just a way of organizing a group of users who share similar characteristics 
-2. Next, you'll need to add your [Roles](https://app.descope.com/authorization). Create two different roles called "teacher" and "student" <br>
-3. Create a ```.env``` file and inside the backend folder and add your project id, student tenant id, and teacher tenant id in  the file:  
+1. Create two different [roles]((https://app.descope.com/authorization)) called "teacher" and "student" <br>
+2. Create a ```.env``` file in the backend folder and add your project id in the file:  
     ```
     PROJECT_ID=<DESCOPE_PROJECT_ID>
-    STUDENT_TENANT_ID=<YOUR_STUDENT_TENANT_ID>
-    TEACHER_TENANT_ID=<YOUR_STUDENT_TENANT_ID>
     ```
 
 <br>
