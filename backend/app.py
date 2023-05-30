@@ -33,39 +33,24 @@ def token_required(f): # auth decorator
         return f(jwt_response, *args, **kwargs)
 
     return decorator
-
-
-def find_role(data):
-    if ("roles" in data):
-        return data["roles"]
   
 
 @app.route('/get_roles', methods=['GET']) 
 @token_required
 def get_roles(jwt_response):
-    role = []
-    tenants = jwt_response["tenants"] 
-    
-    if (len(tenants) > 0): # check if tenant exists
-        student_tenant_id = os.environ.get("STUDENT_TENANT_ID")
-        teacher_tenant_id = os.environ.get("TEACHER_TENANT_ID")
-        
-        if (student_tenant_id in tenants):
-            role = find_role(tenants[student_tenant_id])
-        elif (teacher_tenant_id in tenants):
-            role = find_role(tenants[teacher_tenant_id])
+    roles = jwt_response["roles"] 
 
-    return { "secretMessage": "You are now a trained Descope user!", "role": role}
+    return { "secretMessage": "You are now a trained Descope user!", "roles": roles}
   
 
 @app.route('/get_role_data', methods=['GET']) 
 @token_required
 def get_role_data(jwt_response):
-    valid_student_role = descope_client.validate_tenant_roles(
-        jwt_response, os.environ.get("STUDENT_TENANT_ID"), ["student"]
+    valid_student_role = descope_client.validate_roles(
+        jwt_response, ["student"]
     )
-    valid_teacher_role = descope_client.validate_tenant_roles(
-        jwt_response, os.environ.get("TEACHER_TENANT_ID"), ["teacher"]
+    valid_teacher_role = descope_client.validate_roles(
+        jwt_response, ["teacher"]
     )
 
     return {"valid_teacher": valid_teacher_role, "valid_student": valid_student_role}
