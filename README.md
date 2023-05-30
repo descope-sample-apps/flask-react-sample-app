@@ -21,7 +21,7 @@ In the root directory of the project, run the following to install all dependenc
 Since this app also showcases roles, it will require you to set them up in the Descope Console.
 
 1. Create two different [roles]((https://app.descope.com/authorization)) called "teacher" and "student" <br>
-2. Create a ```.env``` file and inside the backend folder and add your project id in the file:  
+2. Create a ```.env``` file in the backend folder and add your project id in the file:  
     ```
     PROJECT_ID=<DESCOPE_PROJECT_ID>
     ```
