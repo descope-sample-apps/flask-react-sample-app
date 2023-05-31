@@ -8,20 +8,20 @@ Using the Python framework Flask + React.js + Descope Python SDK to add and mana
 
 In the root directory of the project, run the following to install all dependencies: ```npm run setup```
 
-### Frontend Setup
+### Client Setup
 
-1. Create a ```.env``` file in the root directory of the `frontend` folder and add your Descope [Project ID](https://app.descope.com/settings/project) in the file: ```REACT_APP_PROJECT_ID=DESCOPE_PROJECT_ID```
+1. Create a ```.env``` file in the root directory of the `client` folder and add your Descope [Project ID](https://app.descope.com/settings/project) in the file: ```REACT_APP_PROJECT_ID=DESCOPE_PROJECT_ID```
 
-> **NOTE**: If you're running your flask backend on a different port than 5000, change the ```"proxy":"http://127.0.0.1:5000/"``` value to wherever your backend is hosted.
+> **NOTE**: If you're running your flask server on a different port than 5000, change the ```"proxy":"http://127.0.0.1:5000/"``` value to wherever your server is hosted. You can edit the proxy value in your client package.json file. 
 
 <br> 
 
-### Backend Setup
+### Server Setup
 
 Since this app also showcases roles, it will require you to set them up in the Descope Console.
 
 1. Create two different [roles]((https://app.descope.com/authorization)) called "teacher" and "student" <br>
-2. Create a ```.env``` file in the backend folder and add your project id in the file:  
+2. Create a ```.env``` file in the server folder and add your project id in the file:  
     ```
     PROJECT_ID=<DESCOPE_PROJECT_ID>
     ```
@@ -38,10 +38,10 @@ Have at least 2 different terminals open, one command for each terminal. Run the
 
 ## Folder Structure 📁
 
-- Backend: the backend folder contains the flask app and server that will handle session validation 
-    - `app.py`: our main flask app (server)
+- Server: the server folder contains the flask app and server that will handle session validation 
+    - `app.py`: our main flask app 
     - `requirements.txt`: a txt file with a list of our dependencies
-- Frontend: our react app 
+- Client: our react app 
 
 <br>
 
