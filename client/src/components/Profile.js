@@ -1,5 +1,5 @@
 import '../App.css';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useDescope, useUser, getSessionToken, useSession } from '@descope/react-sdk'
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -19,10 +19,10 @@ function Profile() {
 
     const sessionToken = getSessionToken(); // get the session token
 
-    const logoutUser = async() => {
+    const logoutUser = useCallback(async () => {
         await logout()
         return navigate('/login')
-    }
+    }, [logout, navigate]);
 
     useEffect(() => {
         fetch('/get_roles', { // call the api endpoint from the flask server
@@ -47,15 +47,15 @@ function Profile() {
     }, [])
 
     return (
-        <>  
+        <>
             {user && (
                 <div className='page profile'>
                     <div>
                         <h1 className='title'>Hello {user.name} 👋</h1>
                         <div>My Private Component</div>
-                        <p>Secret Message: <span style={{ padding: "5px 10px", color: "white", backgroundColor: "black"}}>{secret.secret}</span></p>
+                        <p>Secret Message: <span style={{ padding: "5px 10px", color: "white", backgroundColor: "black" }}>{secret.secret}</span></p>
                         <p>Your Role(s): </p>
-                        {!secret.roles || secret.roles.length === 0 ? 
+                        {!secret.roles || secret.roles.length === 0 ?
                             <p><span style={{ color: "green" }}>No role found!</span></p>
                             :
                             secret.roles.map((role, i) => (
@@ -64,7 +64,7 @@ function Profile() {
                         }
                         <Link className='link btn' to="/">Home</Link>
                         <Link className='link btn' to="/dashboard">Dashboard</Link>
-                        <button className='btn' onClick={logoutUser}>Logout</button>        
+                        <button className='btn' onClick={logoutUser}>Logout</button>
                     </div>
                 </div>
             )}
