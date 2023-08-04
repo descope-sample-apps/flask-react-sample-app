@@ -47,8 +47,8 @@ Cypress.Commands.add('loginViaDescopeUI', () => {
                 .then(({ body }) => {
                     const otpCode = body["code"]
                     const loginID = body["loginId"]
-                    const homePageUrl = "/?project=" + projectId + "&flow=otp-over-email&theme=dark"
-                    cy.visit(homePageUrl)
+                    cy.visit("/")
+                    cy.get('[data-cy="login"]').click()
 
                     // 1. Submit "Email"
                     cy.get('descope-wc')
@@ -81,4 +81,4 @@ Cypress.Commands.add('deleteAllTestUsers', () => {
         url: `${descopeApiBaseURL}/mgmt/user/test/delete/all`,
         headers: authHeader,
     })
-})s
+})
