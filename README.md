@@ -36,6 +36,28 @@ Have at least 2 different terminals open, one command for each terminal. Run the
 
 <br>
 
+
+## Testing 🧪
+#### 1. Add Descope Management Key to environment variables in `.env` file
+```
+REACT_APP_DESCOPE_MANAGEMENT_KEY="YOUR MANAGEMENT KEY" // Required
+```
+_You can get your management-key [here](https://app.descope.com/settings/company/managementkeys)_.
+
+#### 2. Open the Cypress App
+Make sure you have the application (client and server) running at `https://localhost:3000` per the instructions above. Then, navigate to the client directory of the Flask React Sample App project and run the following to open the Cypress app:
+```
+cd client
+
+npx cypress open
+```
+You'll need to select "E2E Testing" and your preferred browser for testing. For more info, check out the [Cypress Docs](https://docs.cypress.io/guides/getting-started/opening-the-app).
+
+#### 3. Run E2E Tests
+Now, simply click the "spec" you'd like to run and the test will start automatically.
+
+<br/>
+
 ## Folder Structure 📁
 
 - Server: the server folder contains the flask app and server that will handle session validation 
