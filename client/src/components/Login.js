@@ -27,10 +27,10 @@ function Login() {
             {!isAuthenticated &&
                 (
                     <>
-                        <h1 className='title'>Login/SignUp to see the Secret Message!</h1>
+                        <h1 className='title' data-cy="login-header">Login/SignUp to see the Secret Message!</h1>
                         <Descope
-                            flowId="sign-up-or-in" 
-                            onSuccess = {(e) => console.log(e.detail.user)}
+                            flowId="sign-up-or-in"
+                            onSuccess={(e) => console.log(e.detail.user)}
                             onError={(e) => console.log('Could not log in!')}
                             theme="light"
                         />

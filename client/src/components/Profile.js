@@ -52,8 +52,8 @@ function Profile() {
                 <div className='page profile'>
                     <div>
                         <h1 className='title'>Hello {user.name} 👋</h1>
-                        <div>My Private Component</div>
-                        <p>Secret Message: <span style={{ padding: "5px 10px", color: "white", backgroundColor: "black" }}>{secret.secret}</span></p>
+                        <div data-cy="private-component">My Private Component</div>
+                        <p >Secret Message: <span style={{ padding: "5px 10px", color: "white", backgroundColor: "black" }}>{secret.secret}</span></p>
                         <p>Your Role(s): </p>
                         {!secret.roles || secret.roles.length === 0 ?
                             <p><span style={{ color: "green" }}>No role found!</span></p>

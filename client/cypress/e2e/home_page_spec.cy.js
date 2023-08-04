@@ -3,13 +3,11 @@ describe('should properly log in and out', () => {
     cy.deleteAllTestUsers()
     cy.loginViaDescopeUI()
   })
-  it('show JWT Response after log in', () => {
-    cy.get('[data-cy="jwt-response"]').should('have.text', "JWT Response")
-    // Could add check verifying the JWT response has matching data
+  it('shows private component after log in', () => {
+    cy.get('[data-cy="private-component"]').should('have.text', "My Private Component")
   })
 
-  it('show "Welcome!" after logging out', () => {
-    cy.get('[data-cy="logout"]').click()
-    cy.get('descope-wc').find('span').contains('Welcome!')
+  it('show login page header message after logging out', () => {
+    cy.get('[data-cy="login-header"').contains("Login/SignUp to see the Secret Message!")
   })
 })
