@@ -1,0 +1,17 @@
+name: Cypress Tests
+on: [push]
+jobs:
+  cypress-run:
+    name: E2E Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
+          start: npm run setup && npm run server && npm run client
+          wait-on: 'http://localhost:3000' # Waits for above
+        env:
+          REACT_APP_DESCOPE_PROJECT_ID: ${{ secrets.REACT_APP_DESCOPE_PROJECT_ID }}
+          REACT_APP_DESCOPE_MANAGEMENT_KEY: ${{ secrets.REACT_APP_DESCOPE_MANAGEMENT_KEY }}
