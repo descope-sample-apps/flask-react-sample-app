@@ -64,7 +64,7 @@ function Profile() {
                         }
                         <Link className='link btn' to="/">Home</Link>
                         <Link className='link btn' to="/dashboard">Dashboard</Link>
-                        <button className='btn' onClick={logoutUser}>Logout</button>
+                        <button className='btn' onClick={logoutUser} data-cy="logout">Logout</button>
                     </div>
                 </div>
             )}
