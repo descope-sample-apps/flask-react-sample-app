@@ -45,10 +45,8 @@ REACT_APP_DESCOPE_MANAGEMENT_KEY="YOUR MANAGEMENT KEY" // Required
 _You can get your management-key [here](https://app.descope.com/settings/company/managementkeys)_.
 
 #### 2. Open the Cypress App
-Make sure you have the application (client and server) running at `https://localhost:3000` per the instructions above. Then, navigate to the client directory of the Flask React Sample App project and run the following to open the Cypress app:
+Make sure you have the application (client and server) running at `https://localhost:3000` per the instructions above. Then, navigate to the client directory (`cd client`) of the Flask React Sample App project and run the following to open the Cypress app:
 ```
-cd client
-
 npx cypress open
 ```
 You'll need to select "E2E Testing" and your preferred browser for testing. For more info, check out the [Cypress Docs](https://docs.cypress.io/guides/getting-started/opening-the-app).
