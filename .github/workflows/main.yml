@@ -8,19 +8,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      # Install server dependencies and start the server
-      - name: Install and start server
-        run: |
-          cd server
-          make setup
-          flask run
-        env:
-          DESCOPE_PROJECT_ID: ${{ secrets.REACT_APP_DESCOPE_PROJECT_ID }}
+      # # Install server dependencies and start the server
+      # - name: Install and start server
+      #   run: |
+      #     cd server
+      #     make setup
+      #     flask run
+      #   env:
+      #     DESCOPE_PROJECT_ID: ${{ secrets.REACT_APP_DESCOPE_PROJECT_ID }}
 
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
-          start: npm run client
+          start: npm run setup && npm run server && npm run client
           wait-on: 'http://localhost:3000' # Waits for above
         env:
           REACT_APP_DESCOPE_PROJECT_ID: ${{ secrets.REACT_APP_DESCOPE_PROJECT_ID }}
