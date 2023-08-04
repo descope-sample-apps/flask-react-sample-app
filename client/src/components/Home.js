@@ -17,7 +17,7 @@ function Home() {
     return (
         <div className='page'>
             <h1 className='title'>Home</h1>
-            <Link className='link btn' to="/login">Login</Link>
+            <Link className='link btn' to="/login" data-cy="login">Login</Link>
             <iframe src="https://giphy.com/embed/bKj0qEKTVBdF2o5Dgn" width="480" height="352" allowFullScreen></iframe>
         </div>
     )
