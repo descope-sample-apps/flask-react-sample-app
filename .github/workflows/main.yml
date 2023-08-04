@@ -14,7 +14,9 @@ jobs:
           cd server
           make setup
           flask run
-          
+        env:
+          DESCOPE_PROJECT_ID: ${{ secrets.REACT_APP_DESCOPE_PROJECT_ID }}
+
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:

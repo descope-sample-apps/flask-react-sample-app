@@ -9,7 +9,7 @@ app = Flask(__name__)  # initialize flask app
 
 try:
     descope_client = DescopeClient(project_id=os.environ.get(
-        "REACT_APP_DESCOPE_PROJECT_ID"))  # initialize the descope client
+        "DESCOPE_PROJECT_ID"))  # initialize the descope client
 except Exception as error:
     print("failed to initialize. Error:")
     print(error)
