@@ -23,7 +23,7 @@ Since this app also showcases roles, it will require you to set them up in the D
 1. Create two different [roles]((https://app.descope.com/authorization)) called "teacher" and "student" <br>
 2. Create a ```.env``` file in the server folder and add your project id in the file:  
     ```
-    DESCOPE_PROJECT_ID=<DESCOPE_PROJECT_ID>
+    REACT_APP_DESCOPE_PROJECT_ID=<DESCOPE_PROJECT_ID>
     ```
 
 <br>
@@ -47,7 +47,7 @@ _You can get your project-id [here](https://app.descope.com/settings/project)_.
 _You can get your management-key [here](https://app.descope.com/settings/company/managementkeys)_.
 
 #### 2. Open the Cypress App
-Make sure you have the application (client and server) running at `https://localhost:3000` per the instructions above. Then, navigate to the root directory of the Flask React Sample App project (at the same level as client and server) and run the following to open the Cypress app:
+Make sure you have the application (client and server) running at `https://localhost:3000` per the instructions above. Then, navigate to the root directory of the Flask React Sample App project (at the same level as the client and server folders) and run the following to open the Cypress app:
 ```
 npx cypress open
 ```
