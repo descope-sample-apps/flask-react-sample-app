@@ -38,14 +38,16 @@ Have at least 2 different terminals open, one command for each terminal. Run the
 
 
 ## Testing 🧪
-#### 1. Add Descope Management Key to environment variables in `.env` file
+#### 1. Add a `.env` file in your root directory with the following:
 ```
-REACT_APP_DESCOPE_MANAGEMENT_KEY="YOUR MANAGEMENT KEY" // Required
+REACT_APP_DESCOPE_PROJECT_ID="Your_Descope_Project_ID" // Required
+REACT_APP_DESCOPE_MANAGEMENT_KEY="Your_Descope_Management_Key" // Required
 ```
+_You can get your project-id [here](https://app.descope.com/settings/project)_.
 _You can get your management-key [here](https://app.descope.com/settings/company/managementkeys)_.
 
 #### 2. Open the Cypress App
-Make sure you have the application (client and server) running at `https://localhost:3000` per the instructions above. Then, navigate to the client directory (`cd client`) of the Flask React Sample App project and run the following to open the Cypress app:
+Make sure you have the application (client and server) running at `https://localhost:3000` per the instructions above. Then, navigate to the root directory of the Flask React Sample App project (at the same level as client and server) and run the following to open the Cypress app:
 ```
 npx cypress open
 ```
