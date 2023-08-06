@@ -20,7 +20,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
-          start: npm run setup && npm run server && npm run client
+          start: npm run setup && npm run server & npm run client
           wait-on: 'http://localhost:3000' # Waits for above
         env:
           REACT_APP_DESCOPE_PROJECT_ID: ${{ secrets.REACT_APP_DESCOPE_PROJECT_ID }}
