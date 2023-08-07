@@ -10,7 +10,7 @@ In the root directory of the project, run the following to install all dependenc
 
 ### Client Setup
 
-1. Create a ```.env``` file in the root directory of the `client` folder and add your Descope [Project ID](https://app.descope.com/settings/project) in the file: ```REACT_APP_PROJECT_ID=DESCOPE_PROJECT_ID```
+1. Create a ```.env``` file in the root directory of the `client` folder and add your Descope [Project ID](https://app.descope.com/settings/project) in the file: ```REACT_APP_PROJECT_ID=YOUR_DESCOPE_PROJECT_ID```
 
 > **NOTE**: If you're running your flask server on a different port than 5000, change the ```"proxy":"http://127.0.0.1:5000/"``` value to wherever your server is hosted. You can edit the proxy value in your client package.json file. 
 
@@ -23,7 +23,7 @@ Since this app also showcases roles, it will require you to set them up in the D
 1. Create two different [roles]((https://app.descope.com/authorization)) called "teacher" and "student" <br>
 2. Create a ```.env``` file in the server folder and add your project id in the file:  
     ```
-    PROJECT_ID=<DESCOPE_PROJECT_ID>
+    PROJECT_ID="YOUR_DESCOPE_PROJECT_ID"
     ```
 
 <br>
