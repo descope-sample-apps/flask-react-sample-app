@@ -4,19 +4,18 @@ jobs:
   cypress-run:
     name: E2E Tests
     runs-on: ubuntu-latest
+    env: 
+      REACT_APP_DESCOPE_PROJECT_ID: ${{ vars.REACT_APP_DESCOPE_PROJECT_ID }}
+      REACT_APP_DESCOPE_MANAGEMENT_KEY: ${{ secrets.REACT_APP_DESCOPE_MANAGEMENT_KEY }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
       - name: Setup and start server and client
         run: npm run setup && (npm run server &) && (npm run client &)
-        env:
-          REACT_APP_DESCOPE_PROJECT_ID: ${{ vars.REACT_APP_DESCOPE_PROJECT_ID }}
 
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
           wait-on: 'http://localhost:3000'
-        env:
-          REACT_APP_DESCOPE_PROJECT_ID: ${{ vars.REACT_APP_DESCOPE_PROJECT_ID }}
-          REACT_APP_DESCOPE_MANAGEMENT_KEY: ${{ secrets.REACT_APP_DESCOPE_MANAGEMENT_KEY }}
