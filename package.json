@@ -6,7 +6,7 @@
     "scripts": {
         "setup": "cd client && npm install && cd .. && cd server && make setup",
         "client": "cd client && npm start",
-        "server": "cd server && flask run"
+        "server": "cd server && cd server && poetry run python app.py"
     },
     "dependencies": {
         "@descope/react-sdk": "^1.0.3",
