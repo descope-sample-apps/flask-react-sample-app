@@ -1,3 +1,5 @@
+![react-flask](https://github.com/descope-sample-apps/flask-react-sample-app/assets/59460685/d38a6e4c-56ff-49f5-a0f1-fdf86bd4109d)
+
 # Flask-React Sample app with Descope Auth
 
 Add Descope's Python SDK to add authentication to a Flask + React.js app. The project will feature multiple pages, protected routes, and logout functionality. 
