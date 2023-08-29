@@ -18,7 +18,11 @@ npm run setup
 
 3.  Client Setup
 
-Create a ```.env``` file in the root directory of the `client` folder and add your Descope [Project ID](https://app.descope.com/settings/project) in the file: ```REACT_APP_PROJECT_ID=YOUR_DESCOPE_PROJECT_ID```
+Create a ```.env``` file in the root directory of the `client` folder and add your Descope [Project ID](https://app.descope.com/settings/project) in the file: 
+
+```
+REACT_APP_PROJECT_ID="YOUR_DESCOPE_PROJECT_ID"
+```
 
 > **NOTE**: If you're running your flask server on a different port than 5000, change the ```"proxy":"http://127.0.0.1:5000/"``` value to wherever your server is hosted. You can edit the proxy value in your client package.json file.  
 
