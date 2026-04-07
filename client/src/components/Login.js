@@ -1,45 +1,50 @@
 import '../App.css';
-import React, { useEffect } from "react";
-import { Descope, useSession, useUser } from '@descope/react-sdk'
-import { useNavigate } from "react-router-dom";
-
+import React, { useEffect } from 'react';
+import { Descope, useSession, useUser } from '@descope/react-sdk';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
-    // isAuthenticated: boolean - is the user authenticated?
-    // isSessionLoading: boolean - Use this for showing loading screens while objects are being loaded
-    const { isAuthenticated, isSessionLoading } = useSession()
-    // isUserLoading: boolean - Use this for showing loading screens while objects are being loaded
-    const { isUserLoading } = useUser()
-    const navigate = useNavigate()
+    const { isAuthenticated, isSessionLoading } = useSession();
+    const { isUserLoading } = useUser();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (isAuthenticated) {
-            return navigate("/profile");
+            navigate('/profile');
         }
-    }, [isAuthenticated]) // listen for when isAuthenticated has changed
+    }, [isAuthenticated, navigate]);
+
+    if (isSessionLoading || isUserLoading) {
+        return (
+            <div className="page">
+                <p>Loading...</p>
+            </div>
+        );
+    }
+
+    if (isAuthenticated) {
+        return (
+            <div className="page">
+                <p>Loading...</p>
+            </div>
+        );
+    }
 
     return (
-        <div className='page'>
-            {
-                (isSessionLoading || isUserLoading) && <p>Loading...</p>
-            }
-
-            {!isAuthenticated &&
-                (
-                    <>
-                        <h1 className='title'>Login/SignUp to see the Secret Message!</h1>
-                        <Descope
-                            flowId="sign-up-or-in" 
-                            onSuccess = {(e) => console.log(e.detail.user)}
-                            onError={(e) => console.log('Could not log in!')}
-                            theme="light"
-                        />
-                    </>
-                )
-            }
+        <div className="page">
+            <h1 className="title">Login/SignUp to see the Secret Message!</h1>
+            <Descope
+                flowId="sign-up-or-in"
+                theme="light"
+                onSuccess={(e) => {
+                    console.log(e.detail.user);
+                }}
+                onError={(err) => {
+                    console.log('Error!', err);
+                }}
+            />
         </div>
-    )
+    );
 }
-
 
 export default Login;
